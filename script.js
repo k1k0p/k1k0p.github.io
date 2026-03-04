@@ -18,39 +18,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     TYPING EFFECT
+     HOMEPAGE NAME TYPING
   ========================== */
 
-  const typingEl = document.getElementById("typing");
+  const nameEl = document.getElementById("typing-name");
 
-  if (typingEl) {
-    const firstName = "Francisco ";
+  if (nameEl) {
+
     const lastName = "Pandeirada";
-    const fullName = firstName + lastName;
 
     let index = 0;
 
-    function typeWriter() {
-      if (index <= fullName.length) {
+    function typeName() {
 
-        const currentText = fullName.slice(0, index);
-        const lastIndex = currentText.indexOf(lastName);
+      if (index <= lastName.length) {
 
-        if (lastIndex >= 0) {
-          const before = currentText.slice(0, lastIndex);
-          const lastPart = currentText.slice(lastIndex);
-          typingEl.innerHTML =
-            `${before}<span class="highlight">${lastPart}</span>`;
-        } else {
-          typingEl.textContent = currentText;
-        }
+        nameEl.innerHTML =
+          `<span class="highlight">${lastName.slice(0,index)}</span><span class="cursor">|</span>`;
 
         index++;
-        setTimeout(typeWriter, 70);
+
+        setTimeout(typeName, 160);
       }
+
     }
 
-    typeWriter();
+    typeName();
+  }
+
+
+  /* =========================
+     PROJECT 2048 TYPING
+  ========================== */
+
+  const projectEl = document.getElementById("typing-2048");
+
+  if (projectEl) {
+
+    const text = "2048";
+
+    let index = 0;
+
+    function typeProject() {
+
+      if (index <= text.length) {
+
+        projectEl.innerHTML =
+          `<span class="highlight">${text.slice(0,index)}</span><span class="cursor">|</span>`;
+
+        index++;
+
+        setTimeout(typeProject, 180);
+      }
+
+    }
+
+    typeProject();
   }
 
 });
+
+  /* =========================
+     REDES NAME TYPING
+  ========================== */
+
+  const redesEl = document.getElementById("typing-redes");
+
+if (redesEl) {
+
+  const text = "Redes";
+  let index = 0;
+
+  function typeRedes() {
+
+    if (index <= text.length) {
+
+      redesEl.innerHTML =
+        '<span class="highlight">' + text.slice(0, index) + '</span><span class="cursor">|</span>';
+
+      index++;
+
+      setTimeout(typeRedes, 180);
+    }
+  }
+
+  typeRedes();
+}
