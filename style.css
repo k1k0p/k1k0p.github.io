@@ -1,252 +1,362 @@
-/* ==============================
-   RESET
-============================== */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-body {
-  background: #000;
-  color: #f5f5f7;
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
-  transition: opacity 0.3s ease;
+body{
+background:#000;
+color:#f5f5f7;
+font-family:Inter,sans-serif;
+scroll-behavior:smooth;
 }
 
+/* HERO */
 
-/* ==============================
-   HERO (CENTRADA MESMO)
-============================== */
-
-.hero {
-  height: 100vh;              /* ocupa o ecrã inteiro */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;    /* centra vertical */
-  align-items: center;        /* centra horizontal */
-  text-align: center;
-  gap: 30px;
-  padding: 0 10%;
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+gap:25px;
+padding:0 10%;
 }
 
-.hero h1 {
-  font-size: clamp(3.5rem, 7vw, 6rem);
-  font-weight: 600;
-  letter-spacing: -1px;
+.hero h1{
+font-size:clamp(3rem,7vw,5rem);
 }
 
-.highlight {
-  color: #2997ff;
+.hero p{
+max-width:600px;
+color:#a1a1a6;
+font-size:1.2rem;
 }
 
-.hero p {
-  max-width: 700px;
-  font-size: 1.3rem;
-  color: #a1a1a6;
-  line-height: 1.6;
+/* SECTIONS */
+
+section:not(.hero){
+padding:140px 10%;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+gap:40px;
+
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
 }
 
-
-/* ==============================
-   OUTRAS SEÇÕES
-============================== */
-
-section:not(.hero) {
-  padding: 160px 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 40px;
-
-  opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+section.visible{
+opacity:1;
+transform:translateY(0);
 }
 
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* TITLES */
+
+h2{
+font-size:2.4rem;
 }
 
+/* SKILLS */
 
-/* ==============================
-   TIPOGRAFIA
-============================== */
-
-h2 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 600;
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
 }
 
-p {
-  max-width: 720px;
-  font-size: 1.2rem;
-  color: #a1a1a6;
-  line-height: 1.7;
+.skills span{
+padding:10px 20px;
+border-radius:50px;
+background:#111;
+border:1px solid #1c1c1e;
 }
 
+/* PROJECT GRID */
 
-/* ==============================
-   BOTÃO PROJETO (Homepage)
-============================== */
+.projects-grid{
 
-.project-link {
-  display: inline-block;
-  padding: 20px 48px;
-  border-radius: 60px;
-  background: #111;
-  border: 1px solid #1c1c1e;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:40px;
+
+width:100%;
+
+max-width:1000px;
+
+margin-top:40px;
+
 }
 
-.project-link:hover {
-  background: #2997ff;
-  color: #000;
-  transform: translateY(-5px);
+/* PROJECT CARD */
+
+.project-card{
+
+background:#111;
+
+border:1px solid #1c1c1e;
+
+border-radius:18px;
+
+overflow:hidden;
+
+text-decoration:none;
+
+color:white;
+
+transition:.3s;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
 }
 
+.project-card:hover{
 
-/* ==============================
-   PÁGINA DE PROJETO
-============================== */
+transform:translateY(-8px);
 
-.product-hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  text-align: center;
-  padding: 0 10%;
+border-color:#2997ff;
+
+box-shadow:0 20px 40px rgba(0,0,0,.6);
+
 }
 
-.product-hero h1 {
-  font-size: clamp(4rem, 8vw, 7rem);
-  letter-spacing: -2px;
+/* IMAGE */
+
+.project-img img{
+
+width:100%;
+
+height:170px;
+
+object-fit:cover;
+
 }
 
-.hero-sub {
-  font-size: 1.5rem;
-  color: #a1a1a6;
+/* ICON */
+
+.project-icon{
+
+height:170px;
+
+width:100%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:50px;
+
+background:#1a1a1a;
+
 }
 
-.product-content {
-  padding: 160px 10%;
-  max-width: 900px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 120px;
+/* CARD TEXT */
 
-  opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+.project-card h3{
+
+margin-top:20px;
+
 }
 
-.product-content.visible {
-  opacity: 1;
-  transform: translateY(0);
+.project-card p{
+
+color:#a1a1a6;
+
+font-size:.9rem;
+
+margin-bottom:20px;
+
 }
 
+/* LINKS */
 
-/* ==============================
-   BOTÃO DOWNLOAD
-============================== */
+a{
 
-.download-btn {
-  padding: 16px 40px;
-  border-radius: 60px;
-  background: #2997ff;
-  color: #000;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
+color:#2997ff;
+
+text-decoration:none;
+
 }
 
-.download-btn:hover {
-  background: #1f7ae0;
-  transform: scale(1.05);
+/* TYPING EFFECT */
+
+.highlight{
+color:#2997ff;
 }
-
-/* ==============================
-   SKILLS (BOLINHAS PREMIUM)
-============================== */
-
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 30px;
-  max-width: 800px;
-}
-
-.skill {
-  padding: 12px 24px;
-  border-radius: 50px;          /* formato bolinha */
-  background: #111;
-  border: 1px solid #1c1c1e;
-  color: #d1d1d6;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
-
-.skill:hover {
-  background: #2997ff;
-  color: #000;
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(41, 151, 255, 0.25);
-}
-.content-block .skill {
-  background: #0d0d0f;
-  border: 1px solid #1f1f22;
-}
-
-/* ==============================
-   BACK TO HOMEPAGE BUTTON
-============================== */
-
-.project-navigation {
-  padding: 120px 10%;
-  display: flex;
-  justify-content: center;
-}
-
-.back-home-btn {
-  padding: 14px 40px;
-  border-radius: 60px;
-  background: #111;
-  border: 1px solid #1c1c1e;
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.back-home-btn:hover {
-  background: #2997ff;
-  color: #000;
-  transform: translateY(-4px);
-}
-
-/*-------------------------------------------------------*/
 
 .cursor{
-  margin-left:2px;
-  animation: blink 1s infinite;
+margin-left:2px;
+animation:blink 1s infinite;
 }
 
 @keyframes blink{
-  0%{opacity:1;}
-  50%{opacity:0;}
-  100%{opacity:1;}
+
+0%{opacity:1;}
+50%{opacity:0;}
+100%{opacity:1;}
+
+}
+
+/* =====================
+   PROJECT PAGE
+===================== */
+
+.product-hero{
+
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+gap:20px;
+
+padding:0 10%;
+
+}
+
+.product-hero h1{
+
+font-size:clamp(3rem,7vw,5rem);
+
+}
+
+.hero-sub{
+
+color:#a1a1a6;
+
+font-size:1.2rem;
+
+}
+
+/* CONTENT */
+
+.product-content{
+
+max-width:900px;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:80px;
+
+}
+
+.content-block p{
+
+color:#a1a1a6;
+
+line-height:1.6;
+
+}
+
+/* SKILL TAGS */
+
+.skills-list{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:15px;
+
+justify-content:center;
+
+margin-top:20px;
+
+}
+
+.skill{
+
+padding:10px 20px;
+
+border-radius:50px;
+
+background:#111;
+
+border:1px solid #1c1c1e;
+
+}
+
+/* DOWNLOAD */
+
+.download-btn{
+
+padding:14px 30px;
+
+border-radius:40px;
+
+background:#2997ff;
+
+color:#000;
+
+text-decoration:none;
+
+font-weight:500;
+
+transition:.3s;
+
+}
+
+.download-btn:hover{
+
+transform:scale(1.05);
+
+}
+
+/* BACK BUTTON */
+
+.project-navigation{
+
+padding:120px 10%;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.back-home-btn{
+
+padding:12px 30px;
+
+border-radius:40px;
+
+background:#111;
+
+border:1px solid #1c1c1e;
+
+color:white;
+
+text-decoration:none;
+
+}
+
+.back-home-btn:hover{
+
+background:#2997ff;
+
+color:black;
+
 }
