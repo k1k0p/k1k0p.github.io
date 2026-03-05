@@ -1,65 +1,140 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================
-     SCROLL ANIMATION
-  ========================== */
+/* =========================
+SCROLL ANIMATION
+========================= */
 
-  const sections = document.querySelectorAll("section:not(.hero)");
+const sections = document.querySelectorAll("section:not(.hero)");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.15 });
+const observer = new IntersectionObserver((entries) => {
 
-  sections.forEach(section => observer.observe(section));
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+});
+
+},{threshold:0.15});
+
+sections.forEach(section => observer.observe(section));
 
 
-  /* =========================
-     TYPING FUNCTION
-  ========================== */
+/* =========================
+TYPING EFFECT
+========================= */
 
-  function typeEffect(elementId, text, speed = 160) {
+function typeEffect(id,text,speed=150){
 
-    const el = document.getElementById(elementId);
+const el=document.getElementById(id);
 
-    if (!el) return;
+if(!el) return;
 
-    let index = 0;
+let i=0;
 
-    function type() {
+function type(){
 
-      if (index <= text.length) {
+if(i<=text.length){
 
-        el.innerHTML =
-          `<span class="highlight">${text.slice(0,index)}</span><span class="cursor">|</span>`;
+el.innerHTML=
+`<span class="highlight">${text.slice(0,i)}</span><span class="cursor">|</span>`;
 
-        index++;
+i++;
 
-        setTimeout(type, speed);
+setTimeout(type,speed);
 
-      }
+}
 
-    }
+}
 
-    type();
+type();
 
-  }
+}
 
-  /* =========================
-     CALL EFFECTS
-  ========================== */
+/* CALL */
 
-  typeEffect("typing-name","Pandeirada",140);
-  typeEffect("typing-2048","2048",180);
-  typeEffect("typing-redes","Redes",180);
-  typeEffect("typing-fitnow","Now",160);     // fica "FitNow" se escreveres "Fit" no HTML
-  typeEffect("typing-ihc","Computador",160);
-  typeEffect("typing-bd","Dados",160);
-  typeEffect("typing-poo","Objetos",160);
-  typeEffect("typing-pweb","Web",160);
-  typeEffect("typing-logica","Lógica",160);
+typeEffect("typing-name","Pandeirada",140);
+typeEffect("typing-2048","2048");
+typeEffect("typing-redes","Redes");
+typeEffect("typing-fitnow","Now");
+typeEffect("typing-ihc","Computador");
+typeEffect("typing-bd","Dados");
+typeEffect("typing-poo","Objetos");
+typeEffect("typing-pweb","Web");
+typeEffect("typing-logica","Lógica");
+
+
+/* =========================
+CARD LIGHT FOLLOW CURSOR
+========================= */
+
+const cards=document.querySelectorAll(".project-card");
+
+cards.forEach(card=>{
+
+card.addEventListener("mousemove",e=>{
+
+const rect=card.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+
+card.style.setProperty("--x",x+"px");
+card.style.setProperty("--y",y+"px");
+
+});
+
+});
+
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const navbar = document.querySelector(".navbar");
+
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+
+const currentScroll = window.scrollY;
+
+const pageHeight = document.documentElement.scrollHeight;
+const windowHeight = window.innerHeight;
+
+const nearBottom = currentScroll + windowHeight >= pageHeight - 80;
+const nearTop = currentScroll <= 10;
+
+
+/* sempre mostrar no topo */
+
+if(nearTop){
+navbar.classList.remove("hidden");
+lastScroll = currentScroll;
+return;
+}
+
+
+/* scroll para baixo */
+
+if(currentScroll > lastScroll && !nearBottom){
+
+navbar.classList.add("hidden");
+
+}
+
+/* scroll para cima */
+
+else if(currentScroll < lastScroll){
+
+navbar.classList.remove("hidden");
+
+}
+
+lastScroll = currentScroll;
+
+});
 
 });

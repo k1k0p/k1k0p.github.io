@@ -5,23 +5,89 @@ box-sizing:border-box;
 }
 
 body{
+
 background:#000;
+
+background-image:
+radial-gradient(circle at 20% 30%, rgba(41,151,255,.20), transparent 45%),
+radial-gradient(circle at 80% 70%, rgba(120,70,255,.20), transparent 45%),
+radial-gradient(circle at 50% 90%, rgba(41,151,255,.15), transparent 50%);
+
 color:#f5f5f7;
-font-family:Inter,sans-serif;
+
+font-family:Inter, sans-serif;
+
 scroll-behavior:smooth;
+
 }
+
+
+/* NAVBAR */
+
+.navbar{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+
+display:flex;
+justify-content:flex-end;
+
+padding:20px 10%;
+
+background:rgba(0,0,0,.6);
+
+backdrop-filter:blur(10px);
+
+transition:transform .4s ease;
+
+z-index:1000;
+
+}
+
+.navbar.hidden{
+transform:translateY(-100%);
+}
+
+.nav-links a{
+
+margin-left:30px;
+
+color:white;
+
+text-decoration:none;
+
+font-size:.95rem;
+
+transition:.2s;
+
+}
+
+.nav-links a:hover{
+color:#2997ff;
+}
+
 
 /* HERO */
 
 .hero{
+
 height:100vh;
+
 display:flex;
 flex-direction:column;
+
 justify-content:center;
 align-items:center;
+
 text-align:center;
+
 gap:25px;
+
 padding:0 10%;
+
 }
 
 .hero h1{
@@ -29,30 +95,47 @@ font-size:clamp(3rem,7vw,5rem);
 }
 
 .hero p{
+
 max-width:600px;
+
 color:#a1a1a6;
+
 font-size:1.2rem;
+
 }
+
 
 /* SECTIONS */
 
 section:not(.hero){
+
 padding:140px 10%;
+
 display:flex;
 flex-direction:column;
+
 align-items:center;
+
 text-align:center;
+
 gap:40px;
 
 opacity:0;
+
 transform:translateY(40px);
-transition:all .8s ease;
+
+transition:.8s;
+
 }
 
 section.visible{
+
 opacity:1;
+
 transform:translateY(0);
+
 }
+
 
 /* TITLES */
 
@@ -60,21 +143,32 @@ h2{
 font-size:2.4rem;
 }
 
+
 /* SKILLS */
 
 .skills{
+
 display:flex;
 flex-wrap:wrap;
+
 gap:15px;
+
 justify-content:center;
+
 }
 
 .skills span{
+
 padding:10px 20px;
+
 border-radius:50px;
+
 background:#111;
+
 border:1px solid #1c1c1e;
+
 }
+
 
 /* PROJECT GRID */
 
@@ -87,12 +181,12 @@ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:40px;
 
 width:100%;
-
 max-width:1000px;
 
 margin-top:40px;
 
 }
+
 
 /* PROJECT CARD */
 
@@ -110,13 +204,12 @@ text-decoration:none;
 
 color:white;
 
-transition:.3s;
-
 display:flex;
-
 flex-direction:column;
 
 align-items:center;
+
+transition:.3s;
 
 }
 
@@ -130,19 +223,6 @@ box-shadow:0 20px 40px rgba(0,0,0,.6);
 
 }
 
-/* IMAGE */
-
-.project-img img{
-
-width:100%;
-
-height:170px;
-
-object-fit:cover;
-
-}
-
-/* ICON */
 
 .project-icon{
 
@@ -153,7 +233,6 @@ width:100%;
 display:flex;
 
 align-items:center;
-
 justify-content:center;
 
 font-size:50px;
@@ -162,12 +241,8 @@ background:#1a1a1a;
 
 }
 
-/* CARD TEXT */
-
 .project-card h3{
-
 margin-top:20px;
-
 }
 
 .project-card p{
@@ -180,49 +255,82 @@ margin-bottom:20px;
 
 }
 
-/* LINKS */
 
-a{
+/* FOOTER */
 
-color:#2997ff;
+.footer{
 
-text-decoration:none;
+padding:60px 10%;
+
+display:flex;
+
+justify-content:flex-end;
 
 }
 
-/* TYPING EFFECT */
+.footer-content{
+
+display:flex;
+
+gap:20px;
+
+font-size:.85rem;
+
+color:#777;
+
+}
+
+.footer-content a{
+
+color:#777;
+
+text-decoration:none;
+
+transition:.2s;
+
+}
+
+.footer-content a:hover{
+
+color:#2997ff;
+
+}
+
+
+/* TYPING */
 
 .highlight{
 color:#2997ff;
 }
 
 .cursor{
+
 margin-left:2px;
+
 animation:blink 1s infinite;
+
 }
 
 @keyframes blink{
 
-0%{opacity:1;}
-50%{opacity:0;}
-100%{opacity:1;}
+0%{opacity:1}
+50%{opacity:0}
+100%{opacity:1}
 
 }
 
-/* =====================
-   PROJECT PAGE
-===================== */
+/* ======================
+PROJECT PAGE LAYOUT
+====================== */
 
 .product-hero{
 
 height:100vh;
 
 display:flex;
-
 flex-direction:column;
 
 justify-content:center;
-
 align-items:center;
 
 text-align:center;
@@ -234,9 +342,7 @@ padding:0 10%;
 }
 
 .product-hero h1{
-
 font-size:clamp(3rem,7vw,5rem);
-
 }
 
 .hero-sub{
@@ -247,7 +353,8 @@ font-size:1.2rem;
 
 }
 
-/* CONTENT */
+
+/* PROJECT CONTENT */
 
 .product-content{
 
@@ -261,17 +368,34 @@ flex-direction:column;
 
 gap:80px;
 
+padding:120px 10%;
+
+}
+
+.content-block{
+
+max-width:800px;
+
+}
+
+.content-block h2{
+
+margin-bottom:15px;
+
 }
 
 .content-block p{
 
 color:#a1a1a6;
 
-line-height:1.6;
+line-height:1.7;
+
+margin-bottom:15px;
 
 }
 
-/* SKILL TAGS */
+
+/* SKILLS TAGS */
 
 .skills-list{
 
@@ -299,7 +423,8 @@ border:1px solid #1c1c1e;
 
 }
 
-/* DOWNLOAD */
+
+/* DOWNLOAD BUTTON */
 
 .download-btn{
 
@@ -311,9 +436,9 @@ background:#2997ff;
 
 color:#000;
 
-text-decoration:none;
-
 font-weight:500;
+
+text-decoration:none;
 
 transition:.3s;
 
@@ -324,6 +449,7 @@ transition:.3s;
 transform:scale(1.05);
 
 }
+
 
 /* BACK BUTTON */
 
@@ -350,6 +476,8 @@ border:1px solid #1c1c1e;
 color:white;
 
 text-decoration:none;
+
+transition:.3s;
 
 }
 
